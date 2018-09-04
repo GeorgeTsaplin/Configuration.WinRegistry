@@ -13,6 +13,7 @@
     <Authors>CTI, GeorgeTsaplin</Authors>
     <Product>Microsoft .NET Extensions</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>configuration</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
