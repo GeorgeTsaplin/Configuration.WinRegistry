@@ -12,6 +12,7 @@
     <Company>CTI</Company>
     <Authors>CTI, GeorgeTsaplin</Authors>
     <Product>Microsoft .NET Extensions</Product>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

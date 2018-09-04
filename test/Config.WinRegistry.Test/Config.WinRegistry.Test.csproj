@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\Config.WinRegistry\Config.WinRegistry\Config.WinRegistry.csproj" />
+    <ProjectReference Include="..\..\src\Config.WinRegistry\Config.WinRegistry.csproj" />
   </ItemGroup>
 
 </Project>

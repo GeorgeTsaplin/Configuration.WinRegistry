@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E1754B98-561F-448F-B93B-935863CCC360}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config.WinRegistry", "src\Config.WinRegistry\Config.WinRegistry\Config.WinRegistry.csproj", "{FC3AB688-25ED-48BB-B8E4-4B2C875D07E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config.WinRegistry", "src\Config.WinRegistry\Config.WinRegistry.csproj", "{FC3AB688-25ED-48BB-B8E4-4B2C875D07E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config.WinRegistry.Test", "test\Config.WinRegistry.Test\Config.WinRegistry.Test\Config.WinRegistry.Test.csproj", "{FF89DC8A-55AE-4DCD-A83F-A5AE08018D2D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config.WinRegistry.Test", "test\Config.WinRegistry.Test\Config.WinRegistry.Test.csproj", "{FF89DC8A-55AE-4DCD-A83F-A5AE08018D2D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C5F7EC1-9790-45A8-875D-4D2D1941D83C}"
 	ProjectSection(SolutionItems) = preProject
