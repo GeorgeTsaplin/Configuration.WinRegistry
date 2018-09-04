@@ -1,7 +1,7 @@
 ﻿using System;
-using Microsoft.Extensions.Configuration;
+using Cti.Extensions.Configuration.WinRegistry;
 
-namespace Cti.Extensions.Configuration.WinRegistry
+namespace Microsoft.Extensions.Configuration
 {
     /// <summary> Extension methods for adding <see cref="WinRegistryConfigurationProvider"/>
     /// </summary>
