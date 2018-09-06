@@ -51,6 +51,8 @@ namespace Cti.Extensions.Configuration.WinRegistry
                 section.Dispose();
             }
 
+            this.source.DataAdapter?.Invoke(data);
+
             this.Data = data;
         }
 

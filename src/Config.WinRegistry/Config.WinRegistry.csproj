@@ -14,6 +14,9 @@
     <Product>Microsoft .NET Extensions</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>configuration</PackageTags>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>1.0.1
+Added optinal configuration data adapter</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
