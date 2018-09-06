@@ -13,11 +13,9 @@ namespace Cti.Extensions.Configuration.WinRegistry
         /// </summary>
         /// <param name="registryRoot">registry root getter</param>
         /// <param name="sectionPath">section path</param>
-        /// <param name="dataAdapter">configuration data adapter (optional). Will be invoked after reading data from registry.</param>
         public WinRegistryConfigurationSource(
             Func<Microsoft.Win32.RegistryKey> registryRoot,
-            string sectionPath,
-            Action<IDictionary<string, string>> dataAdapter = null)
+            string sectionPath)
         {
             if (registryRoot == null) throw new ArgumentNullException(nameof(registryRoot));
 
@@ -26,8 +24,6 @@ namespace Cti.Extensions.Configuration.WinRegistry
             this.SectionPath = sectionPath;
 
             this.RegistryRoot = registryRoot;
-
-            this.DataAdapter = dataAdapter;
         }
 
         /// <summary> Gets Windows Registry section path
@@ -38,10 +34,15 @@ namespace Cti.Extensions.Configuration.WinRegistry
         /// </summary>
         public Func<RegistryKey> RegistryRoot { get; }
 
-        /// <summary> Gets optinal configuration data adapter.
+        /// <summary> Gets or sets optinal configuration data adapter.
         /// Will be invoked after reading data from registry.
         /// </summary>
-        public Action<IDictionary<string, string>> DataAdapter { get; }
+        public Action<IDictionary<string, string>> DataAdapter { get; set; }
+
+        /// <summary> Gets or sets configuration root section (optional).
+        /// Specified value will be added as root section of registry keys.
+        /// </summary>
+        public string RootSection { get; set; }
 
         /// <inheritdoc />
         public IConfigurationProvider Build(IConfigurationBuilder builder)

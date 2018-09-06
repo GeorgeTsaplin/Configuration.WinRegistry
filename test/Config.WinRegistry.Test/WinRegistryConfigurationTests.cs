@@ -83,5 +83,90 @@ namespace Cti.Extensions.Configuration.WinRegistry.Test
                     }
                 });
         }
+
+        public class DialerAdapted
+        {
+            public UCC UCC { get; set; }
+
+            public SqlAdapter SqlAdapter { get; set; }
+
+            public string NewKey { get; set; }
+        }
+
+        [Fact]
+        public void ReadConfig_DataAdapter_ShouldRead()
+        {
+            // Arrange
+            const string RootSection = "Dialer";
+            const string NewKeyValue = "some value";
+
+            var configBuilder = new ConfigurationBuilder();
+
+            var config = configBuilder.AddRegistrySection(
+                () => Microsoft.Win32.Registry.LocalMachine,
+                "SOFTWARE\\WOW6432Node\\CTI\\CTI Outbound 5",
+                (source) => source.DataAdapter = (data) => data.Add(ConfigurationPath.Combine(RootSection, nameof(DialerAdapted.NewKey)), NewKeyValue))
+                .Build();
+
+            // Act
+            var actual = config.GetSection(RootSection).Get<DialerAdapted>();
+
+            // Assert
+            actual.Should().BeEquivalentTo(
+                new DialerAdapted
+                {
+                    UCC = new UCC
+                    {
+                        Mode = UCCMode.CTIOS
+                    },
+                    SqlAdapter = new SqlAdapter
+                    {
+                        SQLConnection = "Data Source=localhost;Initial Catalog=Outbound5;Persist Security Info=True;User ID=;Password=",
+                        UseCustomDatabaseConnection = 0
+                    },
+                    NewKey = NewKeyValue
+                });
+        }
+
+        public class Root
+        {
+            public Dialer Dialer { get; set; }
+        }
+
+        [Fact]
+        public void ReadConfig_AddRootSection_ShouldRead()
+        {
+            // Arrange
+            const string RootSection = "RootSection";
+
+            var configBuilder = new ConfigurationBuilder();
+
+            var config = configBuilder.AddRegistrySection(
+                () => Microsoft.Win32.Registry.LocalMachine,
+                "SOFTWARE\\WOW6432Node\\CTI\\CTI Outbound 5",
+                (source) => source.RootSection = RootSection)
+                .Build();
+
+            // Act
+            var actual = config.GetSection(RootSection).Get<Root>();
+
+            // Assert
+            actual.Should().BeEquivalentTo(
+                new Root
+                {
+                    Dialer = new Dialer
+                    {
+                        UCC = new UCC
+                        {
+                            Mode = UCCMode.CTIOS
+                        },
+                        SqlAdapter = new SqlAdapter
+                        {
+                            SQLConnection = "Data Source=localhost;Initial Catalog=Outbound5;Persist Security Info=True;User ID=;Password=",
+                            UseCustomDatabaseConnection = 0
+                        }
+                    }
+                });
+        }
     }
 }

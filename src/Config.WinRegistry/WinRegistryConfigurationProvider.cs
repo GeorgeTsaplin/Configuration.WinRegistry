@@ -42,6 +42,11 @@ namespace Cti.Extensions.Configuration.WinRegistry
             var data = new Dictionary<string, string>();
             var prefixStack = new Stack<string>();
 
+            if (!string.IsNullOrWhiteSpace(this.source.RootSection))
+            {
+                prefixStack.Push(this.source.RootSection);
+            }
+
             try
             {
                 ReadSection(section, data, prefixStack);

@@ -14,8 +14,11 @@
     <Product>Microsoft .NET Extensions</Product>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageTags>configuration</PackageTags>
-    <Version>1.0.1</Version>
-    <PackageReleaseNotes>1.0.1
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>1.0.2
+Added optional configuration root section under which will be added all registry keys. 
+
+1.0.1
 Added optinal configuration data adapter</PackageReleaseNotes>
   </PropertyGroup>
 
